@@ -84,6 +84,6 @@ func expandCapsule(token string) (string, bool) {
 }
 
 func capsuleKey() []byte {
-	sum := sha256.Sum256([]byte("codex-local-compact|" + pluginIdentifier + "|v1"))
+	sum := sha256.Sum256([]byte("codex-custom-provider-compact-fix|" + pluginIdentifier + "|v1"))
 	return sum[:]
 }

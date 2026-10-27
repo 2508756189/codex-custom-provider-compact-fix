@@ -1,8 +1,8 @@
-# codex-local-compact
+# codex-custom-provider-compact-fix
 
 Native [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) (cli-proxy-api) plugin, version **0.1.0**.
 
-Plugin id and name: **`codex-local-compact`**. That id is the dynamic-library filename without its extension. CLIProxyAPI also accepts a version suffix and strips a trailing `-v<version>` when the remainder is a valid plugin id, so `codex-local-compact-v0.1.0.dll` still registers as `codex-local-compact`.
+Plugin id and name: **`codex-custom-provider-compact-fix`**. That id is the dynamic-library filename without its extension. CLIProxyAPI also accepts a version suffix and strips a trailing `-v<version>` when the remainder is a valid plugin id, so `codex-custom-provider-compact-fix-v0.1.0.dll` still registers as `codex-custom-provider-compact-fix`.
 
 ## Purpose
 
@@ -28,7 +28,7 @@ Keep the DLL in an **external** `plugins.dir`, outside the CLIProxyAPI install t
 Example layout:
 
 ```text
-<plugins.dir>/windows/amd64/codex-local-compact-v0.1.0.dll
+<plugins.dir>/windows/amd64/codex-custom-provider-compact-fix-v0.1.0.dll
 ```
 
 `plugins.dir` is searched as `plugins/<GOOS>/<GOARCH>` and then the directory root. On Windows the library extension is `.dll`.
@@ -40,7 +40,7 @@ plugins:
   enabled: true
   dir: "C:/cpa-plugins" # external directory, not inside the CPA install
   configs:
-    codex-local-compact:
+    codex-custom-provider-compact-fix:
       enabled: true
       priority: 50
       match_substrings:
@@ -54,7 +54,7 @@ To allowlist exact model names instead, set `models` (case-insensitive). When `m
 ```yaml
 plugins:
   configs:
-    codex-local-compact:
+    codex-custom-provider-compact-fix:
       enabled: true
       priority: 50
       models:
@@ -105,7 +105,7 @@ On Windows amd64, from this directory, with CGO enabled and a C compiler for tha
 $env:CGO_ENABLED = "1"
 $env:GOOS = "windows"
 $env:GOARCH = "amd64"
-go build -buildmode=c-shared -o codex-local-compact-v0.1.0.dll .
+go build -buildmode=c-shared -o codex-custom-provider-compact-fix-v0.1.0.dll .
 ```
 
 `go build -buildmode=c-shared` also writes a matching `.h` file next to the DLL. CPA loads the DLL only. Do not commit the DLL or the generated header.
@@ -123,7 +123,7 @@ go test ./...
 | File | Role |
 | --- | --- |
 | `main.go` | C ABI exports, registration, host callbacks |
-| `config.go` | Plugin YAML (`plugins.configs.codex-local-compact`) |
+| `config.go` | Plugin YAML (`plugins.configs.codex-custom-provider-compact-fix`) |
 | `compact.go` | Local summary and Codex compaction response |
 | `capsule.go` | `clc-v1` seal and expand |
 | `reasoning.go` | `reasoning_text` passback and capsule replay |

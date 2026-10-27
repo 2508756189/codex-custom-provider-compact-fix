@@ -8,7 +8,7 @@
 *.out
 
 # Header emitted beside the library by `go build -buildmode=c-shared`
-codex-local-compact*.h
+codex-custom-provider-compact-fix*.h
 
 # Local CLIProxyAPI checkout used by the replace in go.mod
 /cpa-src/
