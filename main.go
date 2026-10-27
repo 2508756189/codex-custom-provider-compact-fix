@@ -64,7 +64,7 @@ import (
 	"github.com/router-for-me/CLIProxyAPI/v8/sdk/pluginapi"
 )
 
-const pluginIdentifier = "codex-local-compact"
+const pluginIdentifier = "codex-custom-provider-compact-fix"
 
 type envelope struct {
 	OK     bool            `json:"ok"`
