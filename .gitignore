@@ -1,0 +1,37 @@
+# c-shared plugin outputs (do not commit built libraries)
+*.dll
+*.so
+*.dylib
+*.exe
+*.a
+*.test
+*.out
+
+# Header emitted beside the library by `go build -buildmode=c-shared`
+codex-local-compact*.h
+
+# Local CLIProxyAPI checkout used by the replace in go.mod
+/cpa-src/
+
+# Go workspace and vendored deps
+vendor/
+go.work
+go.work.sum
+
+# Coverage and profiles
+coverage.txt
+coverage.html
+*.coverprofile
+
+# Secrets and local env
+.env
+.env.*
+*.pem
+*.key
+
+# Editor and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
